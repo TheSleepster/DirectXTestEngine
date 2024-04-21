@@ -91,9 +91,9 @@ Win32UpdateWindow(HDC DeviceContext, RECT *WindowRect, int X, int Y, int Width, 
 
 LRESULT WINAPI 
 Win32MainWindowCallback(HWND Window,
-               UINT Message,
-               WPARAM wParam,
-               LPARAM lParam) 
+                        UINT Message,
+                        WPARAM wParam,
+                        LPARAM lParam) 
 {
     LRESULT Result = 0;
 

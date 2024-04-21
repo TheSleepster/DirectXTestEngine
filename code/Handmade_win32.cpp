@@ -44,10 +44,10 @@ RenderWeirdGradient(int XOffset, int YOffset)
         uint32 *Pixel = (uint32*)Row;
         for(int X = 0; X < BitmapWidth; X++)
         {
-            uint8 Blue = (X + XOffset);
-            uint8 Red = (Y + YOffset);
+            uint8 Blue = (uint8)(X + XOffset);
+            uint8 Green = (uint8)(Y + YOffset);
 
-            *Pixel++ = (Blue << 8 | Red);
+            *Pixel++ = (Blue << 8 | Green);
         }
         Row += Pitch;
     }
@@ -136,6 +136,17 @@ Win32MainWindowCallback(HWND Window,
 
             Win32UpdateWindow(DeviceContext, &ClientRect, X, Y, Width, Height);
             EndPaint(Window, &Paint);
+        }break;
+
+        case WM_KEYDOWN: 
+        {   
+            switch(wParam) 
+            {
+                case VK_ESCAPE:
+                {
+                    Running = false;
+                }break;
+            }
         }break;
 
         default: 
